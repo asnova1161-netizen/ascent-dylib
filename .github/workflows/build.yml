@@ -1,0 +1,29 @@
+name: build
+
+on:
+  push:
+  workflow_dispatch:
+
+jobs:
+  dylib:
+    runs-on: macos-14
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Install Theos
+        run: |
+          export THEOS=$HOME/theos
+          git clone --recursive --depth 1 https://github.com/theos/theos.git "$THEOS"
+          echo "THEOS=$THEOS" >> "$GITHUB_ENV"
+          echo "$THEOS/bin" >> "$GITHUB_PATH"
+
+      - name: Build dylib
+        run: make clean && make
+
+      - name: Upload dylib
+        uses: actions/upload-artifact@v4
+        with:
+          name: ascent-dylib
+          path: |
+            .theos/obj/**/*.dylib
+          if-no-files-found: error

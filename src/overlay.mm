@@ -262,10 +262,6 @@ static UIView* AscentMakeRow(NSString* title, BOOL on, NSInteger tag,
     self.square.layer.cornerCurve = kCACornerCurveContinuous;
     self.square.layer.borderWidth = 1.0;
     self.square.layer.borderColor = [UIColor colorWithWhite:1.0 alpha:0.28].CGColor;
-    self.square.layer.shadowColor = [UIColor blackColor].CGColor;
-    self.square.layer.shadowOpacity = 0.45;
-    self.square.layer.shadowRadius = 8;
-    self.square.layer.shadowOffset = CGSizeMake(0, 3);
 
     UILabel* glyph = [[UILabel alloc] initWithFrame:self.square.bounds];
     glyph.text = @"A";
@@ -289,10 +285,6 @@ static UIView* AscentMakeRow(NSString* title, BOOL on, NSInteger tag,
     self.panel.layer.cornerCurve = kCACornerCurveContinuous;
     self.panel.layer.borderWidth = 1.0;
     self.panel.layer.borderColor = [UIColor colorWithWhite:1.0 alpha:0.14].CGColor;
-    self.panel.layer.shadowColor = [UIColor blackColor].CGColor;
-    self.panel.layer.shadowOpacity = 0.5;
-    self.panel.layer.shadowRadius = 14;
-    self.panel.layer.shadowOffset = CGSizeMake(0, 6);
 
     UILabel* title = [[UILabel alloc] initWithFrame:CGRectMake(16, 12, 160, 22)];
     title.text = @"ascent";

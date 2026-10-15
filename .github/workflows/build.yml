@@ -10,12 +10,13 @@ jobs:
     steps:
       - uses: actions/checkout@v4
 
-      - name: Install Theos
+      - name: Install Theos + ldid
         run: |
           export THEOS=$HOME/theos
           git clone --recursive --depth 1 https://github.com/theos/theos.git "$THEOS"
           echo "THEOS=$THEOS" >> "$GITHUB_ENV"
           echo "$THEOS/bin" >> "$GITHUB_PATH"
+          brew install ldid
 
       - name: Build dylib
         run: make clean && make

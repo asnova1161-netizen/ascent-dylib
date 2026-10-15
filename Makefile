@@ -3,10 +3,12 @@
 #
 #  macOS:   brew install theos   (or run the GitHub workflow)
 #  build:   make clean && make
-#  output:  .theos/obj/ascent.dylib  (look under .theos/obj/ if named libascent)
+#  output:  .theos/obj/ascent.dylib
 # ===========================================================================
 TARGET = iphone:clang:latest:15.0
 ARCHS  = arm64 arm64e
+
+include $(THEOS)/makefiles/common.mk
 
 LIBRARY_NAME = ascent
 
